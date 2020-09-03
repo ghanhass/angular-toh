@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-heroes',
@@ -37,7 +38,7 @@ export class HeroesComponent implements OnInit {
     });
   }
 
-  delete(here: Hero): void{
+  delete(hero: Hero): void{
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
   }
